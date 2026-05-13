@@ -16,13 +16,7 @@ public class ConnectionFactory {
 		}
 	}
 	
-	
-	public static void closeConnection(Connection conn) throws Exception {
-		close(conn);
-	}
-
-	private static void close(Connection conn)
-			throws Exception {
+	private static void close(Connection conn) throws Exception {
 		try {
 			conn.close();
 		} catch (Exception e) {
