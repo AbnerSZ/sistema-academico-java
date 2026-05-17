@@ -20,15 +20,21 @@ class TesteAlunoDAO {
 			System.out.println(a.getCpf());
 		});
 	}
+	@Test
+	void buscarAlunoNaoCadastrado() {
+		assertThrows(Exception.class, ()->{
+			dao.buscarAluno(0);
+		});
+	}
 
 	@Test
 	void testInserirAluno() {
 		assertDoesNotThrow(()->{
-			if(dao.buscarAluno(2) == null) {
+			
 				Aluno aluno = new Aluno(2,"Fulano","fulano@email","123", "Rua tal", "Cidadinha", "SP", "1190000");
 				assertTrue(dao.inserirAluno(aluno) == 1);
 				assertNotNull(dao.buscarAluno(2));
-			}
+			
 			
 		});
 		
@@ -40,11 +46,11 @@ class TesteAlunoDAO {
 		assertDoesNotThrow(()->{
 			Aluno aluno = new Aluno(2,"Fulano","fulano@email","123", "Rua tal", "Cidadinha", "SP", "1190000");
 			//Se não existir um aluno com este rgm, criar
-			if(dao.buscarAluno(aluno.getRgm()) == null) dao.inserirAluno(aluno);
+			if(dao.buscarAluno(aluno) == null) dao.inserirAluno(aluno);
 			//deletar
 			dao.deletarAluno(aluno);
 			//Verificar se realmente foi deletado
-			assertNull(dao.buscarAluno(2));
+			assertThrows(Exception.class,()->{dao.buscarAluno(2);});
 			//Inserir aluno de volta
 			dao.inserirAluno(aluno);
 		});

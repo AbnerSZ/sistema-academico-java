@@ -37,7 +37,7 @@ public class AlunoDAO {
 			}
 			else aluno = null;
 			connection.close();
-
+			if(aluno == null) throw new Exception("Aluno não encontrado");
 			return aluno;
 		}
 		catch (SQLException e) {
@@ -45,7 +45,8 @@ public class AlunoDAO {
 		}
 	} 
 	
-	public int inserirAluno( Aluno aluno) throws Exception {
+	public int inserirAluno(Aluno aluno) throws Exception {
+		aluno.validarDados();
 		String sql = "INSERT INTO aluno "
 				+ "(rgm, nome, email, cpf, endereco, municipio, uf, celular) "
 				+ "VALUES (?,?,?,?,?,?,?,?)";
@@ -65,7 +66,9 @@ public class AlunoDAO {
 			return valoresInseridos;
 		}
 		catch (SQLException e) {
-			throw e;
+			if(e.getErrorCode() == 1062 && e.getMessage().contains(String.valueOf(aluno.getRgm())))
+				throw new Exception("Aluno com este RGM já cadastrado.");
+			else throw e;
 		}
 	}
 	
@@ -77,11 +80,15 @@ public class AlunoDAO {
 			PreparedStatement pstmt = connection.prepareStatement(sql);
 			pstmt.setInt(1, aluno.getRgm());
 			pstmt.execute();
+			connection.close();	
+			}
+		catch(Exception e) {
+			throw new RuntimeException(e);
 		}
-		catch(Exception e) {}
 	}
 	private void deletarNotas() {}
 	public void atualizarAluno(Aluno aluno) {
+		aluno.validarDados();
 		String sql = "UPDATE aluno SET "
 				+ "nome = ?, email = ?, cpf = ?, endereco = ?, municipio = ?, uf = ?, celular = ?"
 				+ "WHERE rgm = ?";
@@ -97,9 +104,13 @@ public class AlunoDAO {
 			pstmt.setString(7, aluno.getCelular());
 			pstmt.setInt(8, aluno.getRgm());
 			pstmt.execute();
+			connection.close();
 		}
 		catch(Exception e) {
 			
 		}
+	}
+	private void tratamentoSQLException(SQLException sqle, Aluno aluno) {
+		
 	}
 }
