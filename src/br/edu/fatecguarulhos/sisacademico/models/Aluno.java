@@ -13,12 +13,9 @@ public class Aluno {
 	private String celular;
 	
 	//Construtor
-	
 	public Aluno() {}
 	
-	public Aluno(int rgm, String nome, String email, String cpf, String endereco, String municipio, String uf,
-			String celular) {
-		super();
+	public Aluno(int rgm, String nome, String email, String cpf, String endereco, String municipio, String uf,String celular) {
 		this.rgm = rgm;
 		this.nome = nome;
 		this.email = email;
@@ -30,7 +27,6 @@ public class Aluno {
 	}
 
 	//Getters e Setters
-	
 	public int getRgm() {
 		return rgm;
 	}
@@ -94,5 +90,14 @@ public class Aluno {
 	public void setCelular(String celular) {
 		this.celular = celular;
 	}
-	
+	public void validarDados() {
+		if(nome.isBlank() || nome == null) 
+			throw new RuntimeException("Nome não pode estar vazio");
+
+		if(email.isBlank() || email == null) 
+			throw new RuntimeException("Email não pode estar vazio");
+
+		if(cpf.isBlank() || cpf == null) 
+			throw new RuntimeException("CPF não pode estar vazio");
+	}
 }
