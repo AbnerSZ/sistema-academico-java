@@ -77,5 +77,10 @@ public class Disciplina {
 	public void setNota(float nota) {
 		this.nota = nota;
 	}
-	
+
+	public void validarDados() {
+		if(nome.isBlank() || nome == null) 
+			throw new RuntimeException("Nome não pode estar vazio");
+
+	}
 }

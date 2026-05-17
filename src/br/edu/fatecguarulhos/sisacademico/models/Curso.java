@@ -8,13 +8,10 @@ public class Curso {
 	private String nome,campus,turno;
 	
 	//Inicialização do Construtor
-	public Curso(int codigo, String nome, String campus, String turno) {
+	public Curso() {}
 
-	public Curso(int codigo, int rgm_aluno, int codigo_curso, String nome, String campus, String turno) {
-		super();
+	public Curso(int codigo, String nome, String campus, String turno) {
 		this.codigo = codigo;
-		this.rgm_aluno = rgm_aluno;
-		this.codigo_curso = codigo_curso;
 		this.nome = nome;
 		this.campus = campus;
 		this.turno = turno;
@@ -25,22 +22,6 @@ public class Curso {
 
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
-	}
-
-	public int getRgm_aluno() {
-		return rgm_aluno;
-	}
-
-	public void setRgm_aluno(int rgm_aluno) {
-		this.rgm_aluno = rgm_aluno;
-	}
-
-	public int getCodigo_curso() {
-		return codigo_curso;
-	}
-
-	public void setCodigo_curso(int codigo_curso) {
-		this.codigo_curso = codigo_curso;
 	}
 
 	public String getNome() {

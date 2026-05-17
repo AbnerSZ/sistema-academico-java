@@ -237,10 +237,18 @@ public class UIPrincipal extends JFrame {
 		lblUf.setBounds(261, 290, 46, 40);
 		panelDadosP.add(lblUf);
 		
-		Choice comboBoxUf = new Choice();
-		comboBoxUf.setFont(new Font("Tahoma", Font.PLAIN, 28));
-		comboBoxUf.setBounds(313, 290, 52, 40);
-		panelDadosP.add(comboBoxUf);
+		String[] ufs = {
+			    "AC", "AL", "AP", "AM", "BA", "CE", "DF",
+			    "ES", "GO", "MA", "MT", "MS", "MG", "PA",
+			    "PB", "PR", "PE", "PI", "RJ", "RN", "RS",
+			    "RO", "RR", "SC", "SP", "SE", "TO"
+			};
+
+			JComboBox<String> comboBoxUf = new JComboBox<>(ufs);
+			comboBoxUf.setFont(new Font("Tahoma", Font.PLAIN, 23));
+			comboBoxUf.setBounds(313, 290, 80, 40);
+
+			panelDadosP.add(comboBoxUf);
 		
 		JLabel lblCelular = new JLabel("Celular:");
 		lblCelular.setFont(new Font("Tahoma", Font.PLAIN, 23));
