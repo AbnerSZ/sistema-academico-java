@@ -5,9 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-
-import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.NullString;
-
 import br.edu.fatecguarulhos.sisacademico.models.Aluno;
 import br.edu.fatecguarulhos.sisacademico.utils.ConnectionFactory;
 

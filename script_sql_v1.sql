@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS aluno(
 	email VARCHAR(50),
 	cpf VARCHAR(11),
 	endereco VARCHAR(50),
-	município VARCHAR(50),
+	municipio VARCHAR(50),
 	uf VARCHAR(2),
 	celular VARCHAR(50)
 );
