@@ -1,5 +1,8 @@
 package br.edu.fatecguarulhos.sisacademico.models;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 public class Aluno {
 	
 	//Atributos
@@ -11,7 +14,7 @@ public class Aluno {
 	private String municipio;
 	private String uf;
 	private String celular;
-	
+	private LocalDate dataNascimento;
 	//Construtor
 	public Aluno() {}
 	
@@ -89,6 +92,15 @@ public class Aluno {
 
 	public void setCelular(String celular) {
 		this.celular = celular;
+	}
+	public void setDataNascimento(int dia, int mes, int ano) {
+		dataNascimento = LocalDate.of(ano, mes, dia);
+	}
+	public String getDataNascimentoFormatada() {
+		return "";
+	}
+	public LocalDate getDataNascimento() {
+		return dataNascimento;
 	}
 	public void validarDados() {
 		if(nome.isBlank() || nome == null) 

@@ -6,6 +6,18 @@ public class Disciplina {
 	private Aluno aluno;
 	private Curso curso;
 	private int codigo,faltas;
+	private String nome,semestre;
+	private float nota;
+	
+	
+	//Inicialização do Construtor
+	public Disciplina(int codigo, int rgm_aluno, int codigo_curso, int faltas, String nome, String semestre, float nota) {
+		this.codigo = codigo;
+		this.faltas = faltas;
+		this.nome = nome;
+		this.semestre = semestre;
+		this.nota = nota;
+	}
 	public Aluno getAluno() {
 		return aluno;
 	}
@@ -21,17 +33,8 @@ public class Disciplina {
 	public void setCurso(Curso curso) {
 		this.curso = curso;
 	}
-	private String nome,semestre;
-	private float nota;
-	
-	//Inicialização do Construtor
-	public Disciplina(int codigo, int rgm_aluno, int codigo_curso, int faltas, String nome, String semestre, float nota) {
-		this.codigo = codigo;
-		this.faltas = faltas;
-		this.nome = nome;
-		this.semestre = semestre;
-		this.nota = nota;
-	}
+
+
 	
 	//Construtor vazio para evitar erros na inicialização dos objetos
 	public Disciplina() {

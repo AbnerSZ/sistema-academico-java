@@ -7,14 +7,8 @@ public class Curso {
 	private int codigo;
 	private String nome,campus,turno;
 	
-	public Curso() {
-		
-	}
-	
 	//Inicialização do Construtor
-	public Curso(int codigo, String nome, String campus, String turno) {
-		super();
-	}
+	
 	public Curso() {}
 
 	public Curso(int codigo, String nome, String campus, String turno) {
